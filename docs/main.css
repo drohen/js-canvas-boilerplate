@@ -1,0 +1,1 @@
+:root{--bg: #232333;--color: #FAFAFC}*{box-sizing:border-box}html,body{margin:0;font-size:16px;height:100%;background:var(--bg);font-family:"sans";color:var(--color)}h1{margin:0;padding:0}
