@@ -2,7 +2,7 @@
 
 Hello world!
 
-This branch contains all of the files from the bare bones section of the Canvas Boilerplate tutorial.
+[This branch](https://github.com/drohen/js-canvas-boilerplate/tree/barebones) contains all of the files from [the bare bones section](https://javascript.best/posts/how-to-create-a-basic-web-app-project-with-vscode-snowpack-typescript-eslint-github-node/) of the [Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/).
 
 There's not much to see here. You'll likely want Node installed. All that's provided is:
 
