@@ -1,6 +1,6 @@
 # Code design boilerplate
 
-This branch contains all of the files from the code design section of the Canvas Boilerplate tutorial. This code builds upon the foundation within the bare bones branch.
+[This branch](https://github.com/drohen/js-canvas-boilerplate/tree/code-design) contains all of the files from [the code design section](https://javascript.best/posts/code-design-web-apps-using-web-components-observables-no-frameworks/) of [the Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/). This code builds upon the foundation within the bare bones branch.
 
 ## Set up
 
