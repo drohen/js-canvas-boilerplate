@@ -1,20 +1,32 @@
-# Bare bones boilerplate
+# Code design boilerplate
 
-Hello world!
+This branch contains all of the files from the code design section of the Canvas Boilerplate tutorial. This code builds upon the foundation within the bare bones branch.
 
-This branch contains all of the files from the bare bones section of the Canvas Boilerplate tutorial.
+## Set up
 
-There's not much to see here. You'll likely want Node installed. All that's provided is:
+- Make sure you've follow the early steps to install the following on your system:
+	- NodeJS
+	- VSCode (with required extensions)
+	- Git
+- Clone this repo, and checkout this branch
+- Install the dependencies: `npm i`
+- Run the development server: `npm start`
 
-- Snowpack
-- TypeScript
-- ESLint
+## New dependencies
 
-and assuming you're looking at this on Github, you're going to have access to git.
+This project adds the following two new dependencies to this boilerplate:
 
-There's even the assumption that you'll use VSCode (there's a `.vscode/settings.json` file too!).
+- [bind-decorator](https://www.npmjs.com/package/bind-decorator)
+- [web component decorator](https://www.npmjs.com/package/web-component-decorator)
 
-This branch isn't the "main" branch, so the contents of the `docs` directory won't be visible on the Github Pages domain associated with this repository.
+## Notes
+
+- Read the code to see how it all works.
+- Remove the example code and update the interface to suit your needs.
+- Use web components following the pattern within the `src/UI` directory.
+- Use the `src/subscriberHandler.ts` class to help building observables.
+- Use the `@bind` and `@define` decorators to help make the code writing easier and cleaner.
+- When you're ready to push the code to a production environment, build the code with: `npm run build`.
 
 ## LICENSE
 

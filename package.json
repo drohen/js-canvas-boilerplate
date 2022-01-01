@@ -1,24 +1,27 @@
 {
-  "name": "base-project",
-  "description": "Something interesting here.",
-  "version": "1.0.0",
-  "main": "dist/index.js",
-  "scripts": {
-    "dev": "snowpack dev",
-    "build": "snowpack build",
-    "start": "npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "DROHEN",
-  "license": "MIT",
-  "devDependencies": {
-    "@snowpack/plugin-run-script": "^2.3.0",
-    "@typescript-eslint/eslint-plugin": "^5.3.0",
-    "@typescript-eslint/parser": "^5.3.0",
-    "eslint": "^8.2.0",
-    "snowpack": "^3.8.8",
-    "typescript": "^4.4.4"
-  },
-  "dependencies": {}
+	"name": "base-project",
+	"description": "Something interesting here.",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"scripts": {
+		"dev": "snowpack dev",
+		"build": "snowpack build",
+		"start": "npm run dev",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "DROHEN",
+	"license": "MIT",
+	"devDependencies": {
+		"@snowpack/plugin-run-script": "^2.3.0",
+		"@typescript-eslint/eslint-plugin": "^5.3.0",
+		"@typescript-eslint/parser": "^5.3.0",
+		"eslint": "^8.2.0",
+		"snowpack": "^3.8.8",
+		"typescript": "^4.4.4"
+	},
+	"dependencies": {
+		"bind-decorator": "^1.0.11",
+		"web-component-decorator": "^1.1.0"
+	}
 }
