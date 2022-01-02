@@ -1,5 +1,10 @@
 import bind from "bind-decorator"
 
+interface WithMount extends HTMLElement
+{
+	onMount: MountFn
+}
+
 /**
  * Helper class to build web components
  */
@@ -14,9 +19,11 @@ export class UIComponent extends HTMLElement
 	 * @param tag tag indicates the unique 
 	 * @param onMount requires onMount function to emit when a new element is instantiated.
 	 */
-	constructor( protected tag: string, private onMount: MountFn ) 
+	constructor( protected tag: string, public onMount?: MountFn ) 
 	{
 		super()
+
+		this.getMount()
 
 		this.isDefined = false
 
@@ -36,7 +43,7 @@ export class UIComponent extends HTMLElement
 		{
 			this.isDefined = true
 
-			this.onMount( this )
+			this.onMount?.( this )
 
 			for ( const stylesheet of this.stylesheets )
 			{
@@ -45,6 +52,44 @@ export class UIComponent extends HTMLElement
 
 			this.onDefined()
 		} )
+	}
+
+	/**
+	 * Iterate through the hierarchy of nodes until reaching
+	 * the parent custom element that has been mounted to
+	 * the DOM along with the mount observable, so it can
+	 * emit itself, without needing to be directly instantiated
+	 * and passed the function from the UI loader.
+	 * 
+	 * @param currentNode 
+	 * @param level 
+	 * @returns 
+	 */
+	private getMount( currentNode?: Node, level = 0 )
+	{
+		if ( this.onMount ) return
+
+		const node = currentNode || this
+
+		const nextNode = node instanceof ShadowRoot 
+			? node.host
+			: node.parentNode
+
+		if ( this.hasMount( nextNode ) )
+		{
+			this.onMount = nextNode.onMount
+
+			return
+		}
+
+		// 99 is arbitrary depth, it will likely exit before this
+		if ( level === 99 || !nextNode ) throw Error( `No onMount` )
+		else this.getMount( nextNode, level += 1 )
+	}
+
+	private hasMount( node: Node | null ): node is WithMount
+	{
+		return node ? `onMount` in node : false
 	}
 
 	/**
