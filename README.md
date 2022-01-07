@@ -1,24 +1,18 @@
-# Code design boilerplate
+# Interactive Graphics Web Application Boilerplate
 
-[This branch](https://github.com/drohen/js-canvas-boilerplate/tree/canvas) contains all of the files from [the interactive canvas section](https://javascript.best/posts/creating-canvas-input-system-for-prototyping-interactive-graphics/) of [the Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/). This code builds upon the foundation within the code design branch.
+This project contains all of the files from the [the Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/). The end result is [live here](https://drohen.github.io/js-canvas-boilerplate/).
+
+![Example of app](/example.gif)
 
 ## Set up
 
-- Make sure you've follow the early steps to install the following on your system:
+- Install the following on your system:
 	- NodeJS
 	- VSCode (with required extensions)
 	- Git
-- Clone this repo, and checkout this branch
+- Clone this repo
 - Install the dependencies: `npm i`
 - Run the development server: `npm start`
-
-## Notes
-
-- Read the code to see how it all works.
-- Remove the example code and update the `render.ts` draw call to suit your needs.
-- Create different state based on the input events.
-- Add listeners for different types of input.
-- When you're ready to push the code to a production environment, build the code with: `npm run build`.
 
 ## LICENSE
 
