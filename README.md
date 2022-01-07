@@ -1,6 +1,6 @@
 # Code design boilerplate
 
-[This branch](https://github.com/drohen/js-canvas-boilerplate/tree/code-design) contains all of the files from [the code design section](https://javascript.best/posts/code-design-web-apps-using-web-components-observables-no-frameworks/) of [the Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/). This code builds upon the foundation within the bare bones branch.
+[This branch](https://github.com/drohen/js-canvas-boilerplate/tree/canvas) contains all of the files from [the interactive canvas section](https://javascript.best/posts/creating-canvas-input-system-for-prototyping-interactive-graphics/) of [the Canvas Boilerplate tutorial](https://javascript.best/posts/how-to-create-and-use-an-html-2d-canvas-boilerplate-project/). This code builds upon the foundation within the code design branch.
 
 ## Set up
 
@@ -12,20 +12,12 @@
 - Install the dependencies: `npm i`
 - Run the development server: `npm start`
 
-## New dependencies
-
-This project adds the following two new dependencies to this boilerplate:
-
-- [bind-decorator](https://www.npmjs.com/package/bind-decorator)
-- [web component decorator](https://www.npmjs.com/package/web-component-decorator)
-
 ## Notes
 
 - Read the code to see how it all works.
-- Remove the example code and update the interface to suit your needs.
-- Use web components following the pattern within the `src/UI` directory.
-- Use the `src/subscriberHandler.ts` class to help building observables.
-- Use the `@bind` and `@define` decorators to help make the code writing easier and cleaner.
+- Remove the example code and update the `render.ts` draw call to suit your needs.
+- Create different state based on the input events.
+- Add listeners for different types of input.
 - When you're ready to push the code to a production environment, build the code with: `npm run build`.
 
 ## LICENSE
