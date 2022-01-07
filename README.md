@@ -4,7 +4,7 @@
 
 ## Set up
 
-- Make sure you've follow the early steps to install the following on your system:
+- Make sure you've followed the early steps to install the following on your system:
 	- NodeJS
 	- VSCode (with required extensions)
 	- Git
