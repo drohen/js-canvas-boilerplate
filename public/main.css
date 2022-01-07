@@ -1,7 +1,9 @@
 :root
 {
-	--bg: #232333;
-	--color: #FAFAFC;
+	--space-cadet: hsla(238, 30%, 19%, 1);
+	--space-cadet-shadow: hsl(237, 33%, 15%);
+	--blue-sapphire: hsl(207, 34%, 31%);
+	--canvas: 20rem;
 }
 
 *
@@ -14,23 +16,23 @@ html, body
 	margin: 0;
 	font-size: 16px;
 	height: 100%;
-	background: var(--bg);
-	font-family: 'sans';
-	color: var(--color);
+	background: var(--space-cadet);
 }
 
-:host(ui-block) div
+main
 {
-	display: inline-block;
+	height: 100%;
+	display: grid;
+	place-items: center;
 }
 
-:host(ui-button) button
+:host(ui-canvas) canvas
 {
 	display: block;
-	border: 1px solid var(--color);
-	background: var(--bg);
-	color: var(--color);
-	padding: 1rem;
-	display: block;
-	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 4px;
+	box-shadow: 7px 7px 0px 5px var(--space-cadet-shadow);
+	height: calc(var(--canvas) * 1.75);
+	width: var(--canvas);
+	background: var(--blue-sapphire);
 }

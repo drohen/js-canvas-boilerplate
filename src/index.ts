@@ -1,5 +1,7 @@
 import bind from "bind-decorator"
-import { UIBlock } from "./UI/uiBlock"
+import { Render } from "./render"
+import { InputSystem } from "./system/inputSystem"
+import { UICanvas } from "./UI/uiCanvas"
 import type { UIComponent } from "./UI/uiComponent"
 import { UILoader } from "./UI/uiLoader"
 
@@ -21,9 +23,19 @@ class Main implements Observer<UIComponent>
 
 	private uiLoader: UILoader
 
+	private input: InputSystem
+
+	private render: Render
+
 	constructor()
 	{
 		this.components = []
+
+		this.render = new Render()
+		
+		this.input = new InputSystem()
+
+		this.input.onInput.subscribe( this.render )
 
 		/**
 		 * The mount system is used by the UI components to let
@@ -38,29 +50,21 @@ class Main implements Observer<UIComponent>
 
 		// Build and mount the UI to the DOM
 		this.uiLoader.load()
-
-		this.update( performance.now() )
-	}
-
-	// Example loop
-	@bind
-	private update( time: number )
-	{
-		for ( const component of this.components )
-		{
-			if ( component instanceof UIBlock )
-			{
-				component.next( String( ~~( time * 100000 ) ) )
-			}
-		}
-
-		requestAnimationFrame( this.update )
 	}
 
 	@bind
 	public next( component: UIComponent )
 	{
 		this.components.push( component )
+
+		if ( component instanceof UICanvas )
+		{
+			component.init()
+
+			this.input.next( component )
+
+			component.onUpdate.subscribe( this.render )
+		}
 	}
 }
 

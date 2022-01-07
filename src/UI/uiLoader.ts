@@ -1,9 +1,8 @@
 import bind from "bind-decorator"
-import { SubscriberHandler } from "../subscriberHandler"
-import { UIBlock } from "./uiBlock"
-import { UIButton } from "./uiButton"
+import { SubscriberHandler } from "../util/subscriberHandler"
+import { UICanvas } from "./uiCanvas"
 
-export type UIComponentType = UIBlock | UIButton
+export type UIComponentType = UICanvas
 
 export class UILoader extends SubscriberHandler<UIComponentType>
 {
@@ -27,7 +26,7 @@ export class UILoader extends SubscriberHandler<UIComponentType>
 	 */
 	public isUIComponent( component: HTMLElement ): component is UIComponentType
 	{
-		const ctor = [ UIBlock, UIButton ]
+		const ctor = [ UICanvas ]
 
 		const list = ctor.find( c => component instanceof c )
 
@@ -42,22 +41,10 @@ export class UILoader extends SubscriberHandler<UIComponentType>
 	{
 		const main = document.createElement( `main` )
 
-		const button = new UIButton( this.loadComponent )
+		const canvas = new UICanvas( this.loadComponent )
 
-		main.appendChild( button )
+		main.appendChild( canvas )
 
 		document.body.appendChild( main )
-
-		/**
-		 * Subscribe to click event to add more components
-		 */
-		button.onClick.subscribe( {
-			next: () =>
-			{
-				const block = new UIBlock( this.loadComponent )
-
-				main.appendChild( block )
-			}
-		} )
 	}
 }
